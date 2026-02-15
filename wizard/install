@@ -1,5 +1,14 @@
 [
   {
+    "stepTitle": "安装前提示",
+    "items": [
+      {
+        "type": "tips",
+        "helpText": "1.本应用支持启动TCP/UDP/HTTP类型的隧道，不支持启动HTTPS隧道<br>2.安装前，请务必前往官网复制启动命令，并按照\"-t xxx -p xxx\"的格式填写<br>3.还是不会？到 <a target=\"_blank\" href=\"https://mefrp.com/docs/usage/fnnas\">https://mefrp.com/docs/usage/fnnas</a> 查看图文教程<br><br>祝你使用愉快~"
+      }
+    ]
+  },
+  {
     "stepTitle": "启动参数",
     "items": [
       {

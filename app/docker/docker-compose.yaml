@@ -4,4 +4,4 @@ services:
     container_name: mefrp
     network_mode: host
     command: ${start_cmd}
-    image: mefrp/core-next:latest
+    image: menetx/frpc:latest
