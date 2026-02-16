@@ -1,5 +1,26 @@
 #!/bin/bash
 
-### This script is called before the user installs the application.
+LOG_FILE="${TRIM_TEMP_LOGFILE:-${TRIM_PKGVAR}/install.log}"
+PKG_DIR="${TRIM_APPDEST}"
+WWW_DIR="${PKG_DIR}/www"
+TARGET="${WWW_DIR}/mefrpc"
+SRC=""
+
+mkdir -p "${WWW_DIR}" >> ${LOG_FILE} 2>&1
+
+for p in "${WWW_DIR}/mefrpc" "${PKG_DIR}/app/www/mefrpc" "${PKG_DIR}/mefrpc" "${PKG_DIR}/target/mefrpc" "${PKG_DIR}/app/mefrpc" "${PKG_DIR}/app/bin/mefrpc"; do
+    if [ -f "${p}" ]; then
+        SRC="${p}"
+        break
+    fi
+done
+
+if [ -n "${SRC}" ] && [ "${SRC}" != "${TARGET}" ]; then
+    cp "${SRC}" "${TARGET}" >> ${LOG_FILE} 2>&1
+fi
+
+if [ -f "${TARGET}" ]; then
+    chmod +x "${TARGET}" >> ${LOG_FILE} 2>&1
+fi
 
 exit 0

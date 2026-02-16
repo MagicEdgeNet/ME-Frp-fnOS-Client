@@ -1,0 +1,13 @@
+{
+    ".url": {
+        "mefrp.Application": {
+            "title": "ME Frp 内网穿透",
+            "icon": "images/icon_{0}.png",
+            "type": "iframe",
+            "protocol": "http",
+            "port": "1201",
+            "url": "/",
+            "allUsers": false
+        }
+    }
+}

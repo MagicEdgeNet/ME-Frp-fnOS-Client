@@ -1,9 +1,27 @@
 {
-    "docker-project": {
-        "projects": [
+    "data-share":
+    {
+        "shares":
+        [
             {
-                "name": "my-app",
-                "path": "docker"
+                "name": "mefrp",
+                "permission":
+                {
+                    "rw":
+                    [
+                        "mefrp"
+                    ]
+                }
+            },
+            {
+                "name": "mefrp/data",
+                "permission":
+                {
+                    "rw":
+                    [
+                        "mefrp"
+                    ]
+                }
             }
         ]
     }

@@ -1,25 +1,10 @@
 [
   {
-    "stepTitle": "安装前提示",
+    "stepTitle": "使用说明",
     "items": [
       {
         "type": "tips",
-        "helpText": "1.本应用支持启动TCP/UDP/HTTP类型的隧道，不支持启动HTTPS隧道<br>2.安装前，请务必前往官网复制启动命令，并按照\"-t xxx -p xxx\"的格式填写<br>3.还是不会？到 <a target=\"_blank\" href=\"https://mefrp.com/docs/usage/fnnas\">https://mefrp.com/docs/usage/fnnas</a> 查看图文教程<br><br>祝你使用愉快~"
-      }
-    ]
-  },
-  {
-    "stepTitle": "启动参数",
-    "items": [
-      {
-        "type": "text",
-        "field": "start_cmd",
-        "label": "启动命令",
-        "initValue": "-t 你的token -p 你的隧道id",
-        "rules": [
-          { "required": true, "message": "请输入启动命令" },
-          { "pattern": "^-t\\s+\\S+\\s+-p\\s+\\S+$", "message": "格式：-t xxx -p yyy" }
-        ]
+        "helpText": "欢迎您使用ME Frp内网穿透服务，在使用之前，请您认真阅读本说明<br>应用默认密钥为:admin(访问webui时需使用)<br>应用默认端口为1201<br>如需要修改密码，请使用命令行参数 --webui-pass 修改"
       }
     ]
   }
