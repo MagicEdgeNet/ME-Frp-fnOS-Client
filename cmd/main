@@ -5,6 +5,9 @@ PID_FILE="${TRIM_PKGVAR}/app.pid"
 MEFRPC_LOG="${TRIM_PKGVAR}/mefrpc.log"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PKG_DIR="${TRIM_APPDEST:-$(cd "${SCRIPT_DIR}/.." && pwd)}"
+MEFRPC_HOME="${TRIM_PKGVAR}"
+mkdir -p "${MEFRPC_HOME}" >> ${LOG_FILE} 2>&1
+export HOME="${MEFRPC_HOME}"
 MEFRPC_BIN=""
 for p in "${PKG_DIR}/www/mefrpc" "${PKG_DIR}/app/www/mefrpc" "${PKG_DIR}/mefrpc" "${PKG_DIR}/target/mefrpc" "${PKG_DIR}/app/mefrpc" "${PKG_DIR}/app/bin/mefrpc" "${SCRIPT_DIR}/../mefrpc"; do
     if [ -f "${p}" ]; then
@@ -16,11 +19,21 @@ if [ -z "${MEFRPC_BIN}" ]; then
     MEFRPC_BIN="${PKG_DIR}/mefrpc"
 fi
 MEFRPC_BIND_HOST="${MEFRPC_BIND_HOST:-0.0.0.0}"
+MEFRPC_WEBUI_PORT="${MEFRPC_WEBUI_PORT:-1201}"
+MEFRPC_START_RETRY_MAX="${MEFRPC_START_RETRY_MAX:-6}"
+MEFRPC_START_RETRY_DELAY="${MEFRPC_START_RETRY_DELAY:-5}"
+MEFRPC_ALLOW_PUBLIC_ACCESS_RAW="${WIZARD_CONFIG_WEBUI_PUBLIC_ACCESS:-${wizard_config_webui_public_access:-}}"
+if [ "${MEFRPC_ALLOW_PUBLIC_ACCESS_RAW}" = "true" ] || [ "${MEFRPC_ALLOW_PUBLIC_ACCESS_RAW}" = "1" ]; then
+    MEFRPC_ALLOW_PUBLIC_ACCESS="--webui-allow-public-access"
+else
+    MEFRPC_ALLOW_PUBLIC_ACCESS=""
+fi
+MEFRPC_WEBUI_PASS="${WIZARD_CONFIG_WEBUI_PASS:-${wizard_config_webui_pass:-${WIZARD_WEBUI_PASS:-${wizard_webui_pass:-admin}}}}"
 MEFRPC_RUN="\"${MEFRPC_BIN}\""
 if command -v stdbuf >/dev/null 2>&1; then
     MEFRPC_RUN="stdbuf -oL -eL ${MEFRPC_RUN}"
 fi
-CMD="cd \"${PKG_DIR}\" && exec ${MEFRPC_RUN} --webui-addr \"${MEFRPC_BIND_HOST}\" >> \"${MEFRPC_LOG}\" 2>&1"
+CMD="cd \"${PKG_DIR}\" && exec ${MEFRPC_RUN} ${MEFRPC_ALLOW_PUBLIC_ACCESS} --webui-addr \"${MEFRPC_BIND_HOST}\" --webui-port \"${MEFRPC_WEBUI_PORT}\" --webui-pass \"${MEFRPC_WEBUI_PASS}\" >> \"${MEFRPC_LOG}\" 2>&1"
 
 log_msg() {
     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> ${LOG_FILE}
@@ -43,19 +56,21 @@ start_process() {
         return 1
     fi
     chmod +x "${MEFRPC_BIN}" >> ${LOG_FILE} 2>&1
-    # run cmd to start process
-    bash -c "${CMD}" >> ${LOG_FILE} 2>&1 &
-    # write pid to pidfile
-    local start_pid=$!
-    printf "%s" "${start_pid}" > ${PID_FILE}
-    sleep 1
-    if ! check_process "${start_pid}"; then
-        log_msg "process exited immediately, check ${MEFRPC_LOG}"
-        return 1
-    fi
-    # log_msg "CMD = ${CMD}"
-    # log_msg "pid = $!"
-    return 0
+    local attempt=1
+    while [ "${attempt}" -le "${MEFRPC_START_RETRY_MAX}" ]; do
+        bash -c "${CMD}" >> ${LOG_FILE} 2>&1 &
+        local start_pid=$!
+        sleep 1
+        if check_process "${start_pid}"; then
+            printf "%s" "${start_pid}" > ${PID_FILE}
+            return 0
+        fi
+        log_msg "process exited immediately, retrying (${attempt}/${MEFRPC_START_RETRY_MAX})"
+        attempt=$((attempt + 1))
+        sleep "${MEFRPC_START_RETRY_DELAY}"
+    done
+    log_msg "process failed after ${MEFRPC_START_RETRY_MAX} attempts, check ${MEFRPC_LOG}"
+    return 1
 }
 
 stop_process() {

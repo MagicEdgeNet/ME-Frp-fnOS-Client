@@ -1,15 +1,15 @@
 appname               = mefrp
-version               = 2.0.0
+version               = 2.0.0-1
 display_name          = ME Frp 内网穿透
-desc                  = 幻缘映射飞牛fnos版WebUI启动器<br>默认密码为 admin，可通过命令行参数 --webui-pass 进行修改<br>📝 <a href="https://magicedge.feishu.cn/share/base/form/shrcndMe3AIHvbEXxxG11SuHw3g">问题反馈问卷</a><br>📖 <a href="https://www.mefrp.com/docs/usage/fnnas">使用方法</a><br>🌐 <a href="https://www.mefrp.com/">官网链接</a><br>👥 <a href="https://qm.qq.com/q/fBtW7lJ1Xa">QQ交流反馈群</a>
+ desc                 = 幻缘映射飞牛fnos版WebUI启动器<br>默认密码为 admin，可从”应用设置“进行修改<br>📝 <a href="https://magicedge.feishu.cn/share/base/form/shrcndMe3AIHvbEXxxG11SuHw3g">问题反馈问卷</a><br>📖 <a href="https://www.mefrp.com/docs/usage/fnnas">使用方法</a><br>🌐 <a href="https://www.mefrp.com/">官网链接</a><br>👥 <a href="https://qm.qq.com/q/fBtW7lJ1Xa">QQ交流反馈群</a><br>🐙 <a href="https://github.com/MagicEdgeNet/ME-Frp-fnOS-Client">GitHub 仓库地址</a>
 arch                  = x86_64
 source                = thirdparty
 maintainer            = 幻缘网络
 maintainer_url        = https://www.mefrp.com/
 distributor           = sherry
 distributor_url       = https://club.fnnas.com/home.php?mod=space&uid=16443
-os_min_version        = 1.1.20
-changelog             = 1.支持webui，带来全新体验<br>2.支持多隧道启动
+os_min_version        = 1.1.23
+changelog             = 本次更新我们带来了新版本frpc的Web UI配置功能,从此隧道配置无需复制启动命令，登录账号即可一键启动，方便又快捷<br><br>更新重要提醒<br>1.本次更新后，docker容器将废弃，请您在更新完成后，自行前往docker中心删除容器<br>2.请您在更新前，务必确保设备1201端口未被占用，如占用，应用将无法启动<br><br>最后，祝你使用愉快呀~
 desktop_uidir         = ui
 desktop_applaunchname = mefrp.Application
 service_port          = 1201

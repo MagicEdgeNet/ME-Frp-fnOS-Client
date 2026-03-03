@@ -1,19 +1,27 @@
 [
   {
-    "stepTitle": "修改启动参数",
+    "stepTitle": "应用配置",
     "items": [
       {
-        "type": "tips",
-        "helpText": "更改后，请前往docker-compose界面关闭\"my-app\"项目并重新构建"
+        "type": "switch",
+        "field": "wizard_config_webui_public_access",
+        "label": "允许公网访问 WebUI",
+        "initValue": "false"
       },
       {
-        "type": "text",
-        "field": "start_cmd",
-        "label": "启动命令",
-        "initValue": "start_cmd",
+        "type": "password",
+        "field": "wizard_config_webui_pass",
+        "label": "WebUI 密码",
+        "initValue": "admin",
         "rules": [
-          { "required": true, "message": "请输入启动命令" },
-          { "pattern": "^-t\\s+\\S+\\s+-p\\s+\\S+$", "message": "格式：-t xxx -p yyy" }
+          {
+            "required": true,
+            "message": "请输入 WebUI 密码"
+          },
+          {
+            "pattern": "^.{5,}$",
+            "message": "密码长度至少 5 位"
+          }
         ]
       }
     ]

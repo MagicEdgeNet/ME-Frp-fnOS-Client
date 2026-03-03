@@ -1,19 +1,4 @@
 {
-    "data-share":
-    {
-        "shares":
-        [
-            {
-                "name": "mefrp",
-                "permission":
-                {
-                    "rw":
-                    [
-                        "mefrp"
-                    ]
-                }
-            },
-            {
                 "name": "mefrp/data",
                 "permission":
                 {
@@ -21,8 +6,5 @@
                     [
                         "mefrp"
                     ]
-                }
-            }
-        ]
     }
 }
