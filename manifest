@@ -1,6 +1,6 @@
 appname         = mefrp
 version         = 1.0.26-arm1
-display_name    = ME Frp内网穿透
+display_name    = ME Frp 内网穿透
 desc            = 幻缘映射飞牛fnos启动器，您需要先前往官网创建隧道后，复制启动命令填写到安装向导中<br><a href="https://magicedge.feishu.cn/share/base/form/shrcndMe3AIHvbEXxxG11SuHw3g">点击这里提交问题反馈</a><br><a href="https://www.mefrp.com/docs/usage/fnnas">使用方法点这</a><br><a href="https://www.mefrp.com/">官网链接点这</a><br><a href="https://qm.qq.com/q/fBtW7lJ1Xa">点此加入我们的QQ交流群</a>
 platform        = arm
 source          = thirdparty
