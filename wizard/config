@@ -4,13 +4,13 @@
     "items": [
       {
         "type": "switch",
-        "field": "wizard_config_webui_public_access",
+        "field": "wizard_webui_public_access",
         "label": "允许公网访问 WebUI",
         "initValue": "false"
       },
       {
         "type": "password",
-        "field": "wizard_config_webui_pass",
+        "field": "wizard_webui_pass",
         "label": "WebUI 密码",
         "initValue": "admin",
         "rules": [
@@ -19,8 +19,8 @@
             "message": "请输入 WebUI 密码"
           },
           {
-            "pattern": "^.{5,}$",
-            "message": "密码长度至少 5 位"
+            "pattern": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,16}$",
+            "message": "密码需为 8-16 位，且包含字母和数字"
           }
         ]
       }

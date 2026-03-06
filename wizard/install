@@ -21,15 +21,14 @@
         "type": "password",
         "field": "wizard_webui_pass",
         "label": "WebUI 密码",
-        "initValue": "admin",
         "rules": [
           {
             "required": true,
-            "message": "请输入 WebUI 密码"
+            "message": "请设置 WebUI 密码"
           },
           {
-            "pattern": "^.{5,}$",
-            "message": "密码长度至少 5 位"
+            "pattern": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,16}$",
+            "message": "密码需为 8-16 位，且包含字母和数字"
           }
         ]
       }

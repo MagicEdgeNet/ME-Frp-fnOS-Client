@@ -1,8 +1,13 @@
 #!/bin/bash
 
 LOG_FILE="${TRIM_TEMP_LOGFILE:-${TRIM_PKGVAR}/info.log}"
-PID_FILE="${TRIM_PKGVAR}/app.pid"
-MEFRPC_LOG="${TRIM_PKGVAR}/mefrpc.log"
+WORK_DIR="${TRIM_PKGVAR}"
+if [ ! -w "${WORK_DIR}" ]; then
+    WORK_DIR="/tmp/mefrp_webui_work"
+    mkdir -p "${WORK_DIR}"
+fi
+PID_FILE="${WORK_DIR}/mefrpc_webui.pid"
+MEFRPC_LOG="${WORK_DIR}/mefrpc_webui_service.log"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PKG_DIR="${TRIM_APPDEST:-$(cd "${SCRIPT_DIR}/.." && pwd)}"
 MEFRPC_HOME="${TRIM_PKGVAR}"
@@ -22,7 +27,7 @@ MEFRPC_BIND_HOST="${MEFRPC_BIND_HOST:-0.0.0.0}"
 MEFRPC_WEBUI_PORT="${MEFRPC_WEBUI_PORT:-1201}"
 MEFRPC_START_RETRY_MAX="${MEFRPC_START_RETRY_MAX:-6}"
 MEFRPC_START_RETRY_DELAY="${MEFRPC_START_RETRY_DELAY:-5}"
-MEFRPC_ALLOW_PUBLIC_ACCESS_RAW="${WIZARD_CONFIG_WEBUI_PUBLIC_ACCESS:-${wizard_config_webui_public_access:-}}"
+MEFRPC_ALLOW_PUBLIC_ACCESS_RAW="${WIZARD_WEBUI_PUBLIC_ACCESS:-${wizard_webui_public_access:-${WIZARD_CONFIG_WEBUI_PUBLIC_ACCESS:-${wizard_config_webui_public_access:-}}}}"
 if [ "${MEFRPC_ALLOW_PUBLIC_ACCESS_RAW}" = "true" ] || [ "${MEFRPC_ALLOW_PUBLIC_ACCESS_RAW}" = "1" ]; then
     MEFRPC_ALLOW_PUBLIC_ACCESS="--webui-allow-public-access"
 else
@@ -55,7 +60,6 @@ start_process() {
         log_msg "mefrpc not found"
         return 1
     fi
-    chmod +x "${MEFRPC_BIN}" >> ${LOG_FILE} 2>&1
     local attempt=1
     while [ "${attempt}" -le "${MEFRPC_START_RETRY_MAX}" ]; do
         bash -c "${CMD}" >> ${LOG_FILE} 2>&1 &
