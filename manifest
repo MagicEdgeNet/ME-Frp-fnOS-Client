@@ -1,14 +1,16 @@
-appname         = mefrp
-version         = 1.5.20
-display_name    = ME Frp 内网穿透
-desc            = 幻缘映射飞牛fnos启动器，请先前往官网创建隧道并复制启动命令，再填写至安装向导中<br>📝 <a href="https://magicedge.feishu.cn/share/base/form/shrcndMe3AIHvbEXxxG11SuHw3g">问题反馈问卷</a><br>📖 <a href="https://www.mefrp.com/docs/usage/fnnas">使用方法</a><br>🌐 <a href="https://www.mefrp.com/">官网链接</a><br>👥 <a href="https://qm.qq.com/q/fBtW7lJ1Xa">QQ交流反馈群</a>
-platform        = x86
-source          = thirdparty
-maintainer      = 幻缘网络
-maintainer_url  = https://www.mefrp.com/
-distributor     = sherry
-distributor_url = https://club.fnnas.com/home.php?mod=space&uid=16443
-os_min_version  = 1.1.19
-changelog       = 1.更新docker镜像
-desktop_uidir   = 
-checksum        = 1849af81cf61cbe141d81cb545dd9428
+appname               = mefrp
+version               = 2.0.1
+display_name          = ME Frp 内网穿透
+ desc                 = 幻缘映射飞牛fnos版WebUI启动器<br>默认密码为 admin，可从”应用设置“进行修改<br>有问题可以先填写问卷，不行的话进群问<br>📝 <a href="https://magicedge.feishu.cn/share/base/form/shrcndMe3AIHvbEXxxG11SuHw3g">问题反馈问卷</a><br>📖 <a href="https://www.mefrp.com/docs/usage/fnnas">使用方法</a><br>🌐 <a href="https://www.mefrp.com/">官网链接</a><br>👥 <a href="https://qm.qq.com/q/fBtW7lJ1Xa">QQ交流反馈群</a><br>🐙 <a href="https://github.com/MagicEdgeNet/ME-Frp-fnOS-Client">GitHub 仓库地址</a>
+arch                  = x86_64
+source                = thirdparty
+maintainer            = 幻缘网络
+maintainer_url        = https://www.mefrp.com/
+distributor           = sherry
+distributor_url       = https://club.fnnas.com/home.php?mod=space&uid=16443
+os_min_version        = 1.1.23
+changelog             = 1.修改应用简介，顺便告诉你一下官网正在进行ICP备案，用不了是正常情况哈~<br>偷偷告诉你，开发者先跑路一会，886~
+desktop_uidir         = ui
+desktop_applaunchname = mefrp.Application
+service_port          = 1201
+checkport             = true
