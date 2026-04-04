@@ -12,7 +12,6 @@
         "type": "password",
         "field": "wizard_webui_pass",
         "label": "WebUI 密码",
-        "initValue": "admin",
         "rules": [
           {
             "required": true,

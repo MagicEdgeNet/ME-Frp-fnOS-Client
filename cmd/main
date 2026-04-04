@@ -34,11 +34,17 @@ else
     MEFRPC_ALLOW_PUBLIC_ACCESS=""
 fi
 MEFRPC_WEBUI_PASS="${WIZARD_CONFIG_WEBUI_PASS:-${wizard_config_webui_pass:-${WIZARD_WEBUI_PASS:-${wizard_webui_pass:-admin}}}}"
+MEFRPC_NO_UPDATE_RAW="${MEFRPC_NO_UPDATE:-${WIZARD_NO_UPDATE:-${wizard_no_update:-${WIZARD_CONFIG_NO_UPDATE:-${wizard_config_no_update:-}}}}}"
+if [ "${MEFRPC_NO_UPDATE_RAW}" = "true" ] || [ "${MEFRPC_NO_UPDATE_RAW}" = "1" ]; then
+    MEFRPC_NO_UPDATE_ARG="--noupdate"
+else
+    MEFRPC_NO_UPDATE_ARG=""
+fi
 MEFRPC_RUN="\"${MEFRPC_BIN}\""
 if command -v stdbuf >/dev/null 2>&1; then
     MEFRPC_RUN="stdbuf -oL -eL ${MEFRPC_RUN}"
 fi
-CMD="cd \"${PKG_DIR}\" && exec ${MEFRPC_RUN} ${MEFRPC_ALLOW_PUBLIC_ACCESS} --webui-addr \"${MEFRPC_BIND_HOST}\" --webui-port \"${MEFRPC_WEBUI_PORT}\" --webui-pass \"${MEFRPC_WEBUI_PASS}\" >> \"${MEFRPC_LOG}\" 2>&1"
+CMD="cd \"${PKG_DIR}\" && exec ${MEFRPC_RUN} ${MEFRPC_ALLOW_PUBLIC_ACCESS} --webui-addr \"${MEFRPC_BIND_HOST}\" --webui-port \"${MEFRPC_WEBUI_PORT}\" --webui-pass \"${MEFRPC_WEBUI_PASS}\" ${MEFRPC_NO_UPDATE_ARG} >> \"${MEFRPC_LOG}\" 2>&1"
 
 log_msg() {
     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> ${LOG_FILE}
