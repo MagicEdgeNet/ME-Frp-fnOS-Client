@@ -1,5 +1,5 @@
 appname               = mefrp
-version               = 2.0.8
+version               = 2.0.9
 display_name          = ME Frp 内网穿透
  desc                 = 幻缘映射飞牛fnos版WebUI启动器<br>请在安装过程中设置 Web UI 密码。如忘记，可从"应用设置"中修改<br>如有其他问题，可前往应用"帮助"界面查看使用文档
 arch                  = x86_64
@@ -9,7 +9,7 @@ maintainer_url        = https://www.mefrp.com/
 distributor           = sherry
 distributor_url       = https://club.fnnas.com/home.php?mod=space&uid=16443
 os_min_version        = 1.1.23
-changelog             = 1.【核心】frpc 升级至 v1.0.3-fnos<br>2.【Web UI】新增用户注册功能<br>3.【Web UI】新增帮助界面，支持查看使用文档<br>4.【隧道】新增管理按钮，点击跳转官网管理页面<br>5.【安装】新增密码设置逻辑<br>6.【隧道】下线 HTTPS 隧道启动功能<br>7.【稳定性】修复已知问题<br>8.【Web UI】更改反馈问卷地址
+changelog             = 1.【核心】frpc 升级至 v1.0.3-fnos<br>2.【Web UI】新增用户注册功能<br>3.【Web UI】新增帮助界面，支持查看使用文档<br>4.【隧道】新增管理按钮，点击跳转官网管理页面<br>5.【安装】新增密码设置逻辑<br>6.【隧道】下线 HTTPS 隧道启动功能<br>7.【稳定性】修复已知问题<br>8.【Web UI】更改反馈问卷地址<br>9.【安装】修复安装密码设置逻辑问题
 desktop_uidir         = ui
 desktop_applaunchname = mefrp.Application
 service_port          = 1201

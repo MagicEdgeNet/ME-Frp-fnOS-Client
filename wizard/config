@@ -11,14 +11,14 @@
       {
         "type": "password",
         "field": "wizard_webui_pass",
-        "label": "WebUI 密码",
+        "label": "WebUI ",
         "rules": [
           {
             "required": true,
             "message": "请输入 WebUI 密码"
           },
           {
-            "pattern": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,16}$",
+            "pattern": "^(?=.*[A-Za-z])(?=.*\\d).{8,16}$",
             "message": "密码需为 8-16 位，且包含字母和数字"
           }
         ]
