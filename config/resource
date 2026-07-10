@@ -1,10 +1,10 @@
 {
-    "docker-project": {
-        "projects": [
-            {
-                "name": "my-app",
-                "path": "docker"
-            }
-        ]
+                "name": "mefrp/data",
+                "permission":
+                {
+                    "rw":
+                    [
+                        "mefrp"
+                    ]
     }
 }

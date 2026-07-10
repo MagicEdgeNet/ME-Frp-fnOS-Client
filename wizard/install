@@ -1,15 +1,51 @@
 [
   {
-    "stepTitle": "启动参数",
+    "stepTitle": "使用说明",
     "items": [
       {
-        "type": "text",
-        "field": "start_cmd",
-        "label": "启动命令",
-        "initValue": "-t 你的token -p 你的隧道id",
+        "type": "tips",
+        "helpText": "欢迎您使用 ME Frp 内网穿透服务，在使用之前，请您认真阅读本说明<br>1、应用默认端口为 1201<br>2、请在下一步设置 WebUI 访问密码<br>3、如需要修改密码，请从「应用设置」重新配置"
+      }
+    ]
+  },
+  {
+    "stepTitle": "内容策略",
+    "items": [
+      {
+        "type": "tips",
+        "helpText": "<b>ME Frp 内容策略（最终解释权归幻缘网络所有，最后更新：2026-02-14）</b><br><br><b>一、禁止传播和穿透的非法内容</b><br>以下内容一经发现，立即封禁账户并上报执法机构：<br>· 违反宪法基本原则<br>· 危害国家安全、泄露国家机密、颠覆政权或破坏国家统一<br>· 损害国家荣誉和利益<br>· 煽动民族仇恨、歧视或破坏民族团结<br>· 破坏宗教政策、宣扬邪教或封建迷信<br>· 散布谣言、扰乱社会秩序或社会稳定<br>· 涉及赌博、彩票、诈骗等非法活动<br>· 含有淫秽、色情、暴力、凶杀、恐怖内容或教唆犯罪<br>· 侮辱或诽谤他人，侵害他人合法权益<br>· 其他法律、行政法规禁止的内容<br><br><b>二、限制穿透的敏感内容</b><br>首次违规封禁隧道，再次违规或情节严重封禁账户：<br>· 色情、暴恐、恶心、政治敏感内容（图片、视频、文字等）<br>· 任何形式的科学上网（翻墙）相关内容<br>· 病毒、木马、未经知情同意的远程控制程序<br>· 任何形式的正向代理服务（VPN、HTTP Proxy、Shadowsocks、V2Ray、Clash、Trojan 等）<br>· 政治敏感话题相关网站、博客、论坛<br>· 无审查的生成式 AI 程序（SillyTavern、Stable Diffusion、ComfyUI 等）<br>· 网站不得含有任何跳转至不合规网站的链接<br><br><b>三、其他不适合穿透的内容</b><br>· IDC 系统、财务系统、客服台<br>· 发卡网、挂卡网、养鸡场等灰产程序<br>· 盘搜（无内容审查）<br>· 版权风险游戏私服、游戏外挂<br>· 网赚平台 / PCDN 程序（网心云、流量宝等）<br>· BT/PT 下载（WebUI 不含传输除外）<br><br><b>四、特殊业务要求</b><br>· 论坛类业务需提供 ICP 备案、公安备案及论坛专项备案证明<br>· 部分节点禁止网盘、对象存储、资源分享站等大流量业务<br>· 穿透受管控环境（校园网、企业 OA 等）需提交加盖公章的免责声明至 support@mefrp.com<br><br>违规信息将上报公安机关并配合调查。"
+      },
+      {
+        "type": "switch",
+        "field": "wizard_agree_content_policy",
+        "label": "我已阅读并同意遵守以上《ME Frp 内容策略》",
+        "initValue": "true",
+        "message": "false"
+      }
+    ]
+  },
+  {
+    "stepTitle": "应用配置",
+    "items": [
+      {
+        "type": "switch",
+        "field": "wizard_webui_public_access",
+        "label": "允许公网访问 WebUI",
+        "initValue": "false"
+      },
+      {
+        "type": "password",
+        "field": "wizard_webui_pass",
+        "label": "WebUI 密码",
         "rules": [
-          { "required": true, "message": "请输入启动命令" },
-          { "pattern": "^-t\\s+\\S+\\s+-p\\s+\\S+$", "message": "格式：-t xxx -p yyy" }
+          {
+            "required": true,
+            "message": "请设置 WebUI 密码"
+          },
+          {
+            "pattern": "^(?=.*[A-Za-z])(?=.*\\d).{8,16}$",
+            "message": "密码需为 8-16 位，且包含字母和数字"
+          }
         ]
       }
     ]
