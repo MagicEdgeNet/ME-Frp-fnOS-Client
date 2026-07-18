@@ -1,5 +1,5 @@
 appname               = mefrp
-version               = 1.0.0-arm
+version               = 1.0.1-arm
 display_name          = ME Frp 内网穿透
 desc                  = 幻缘映射飞牛fnos版WebUI启动器<br>请在安装过程中设置 Web UI 密码。如忘记，可从"应用设置"中修改<br>如有其他问题，可前往应用"帮助"界面查看使用文档
 platform              = arm
@@ -9,7 +9,7 @@ maintainer_url        = https://www.mefrp.com/
 distributor           = sherry
 distributor_url       = https://club.fnnas.com/home.php?mod=space&uid=16443
 os_min_version        = 1.2.0012
-changelog             = 本次更新将把 frpc 核心升级至 v1.5.0-fnos，请在升级后重新登录账号并启动隧道<br>隧道管理，随手掌控<br>【全新管理体验】<br>新增支持创建隧道，查看节点状态，编辑隧道配置，强制下线隧道，以及查看流量历史功能。同时支持显示通过命令行启动的其他隧道，管理能力大幅加强<br>底层加固，穿透更稳<br>【稳定性优化】<br>底层核心模块修复 UDP 隧道问题，并对穿透性能做出优化，连接更稳定可靠<br>处处有细节，处处有惊喜<br>【交互优化】<br>人机验证样式跟进最新规范，提升验证体验<br>【安全细节优化】<br>修复 API 相关问题，确保管理工作流畅可靠<br>【功能优化】<br>支持在 Web UI 进行权益抽取
+changelog             = 本次升级将把核心升级至 v1.5.0-fnos,请在升级后重新登录账号并启动隧道<br>【核心】<br>支持隧道启动功能
 desktop_uidir         = ui
 desktop_applaunchname = mefrp.Application
 service_port          = 1201
