@@ -9,7 +9,7 @@ maintainer_url        = https://www.mefrp.com/
 distributor           = sherry
 distributor_url       = https://club.fnnas.com/home.php?mod=space&uid=16443
 os_min_version        = 1.2.0012
-changelog             = 本次升级将把核心升级至 v1.5.0-fnos,请在升级后重新登录账号并启动隧道<br>【核心】<br>支持隧道启动功能
+changelog             = 本次升级将把核心升级至 v1.5.0-fnos,请在升级后重新登录账号并启动隧道<br>【核心】<br>支持隧道删除功能
 desktop_uidir         = ui
 desktop_applaunchname = mefrp.Application
 service_port          = 1201
