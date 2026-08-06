@@ -1,5 +1,5 @@
 appname               = mefrp
-version               = 2.2.72
+version               = 2.2.73
 display_name          = ME Frp 内网穿透
 desc                  = 幻缘映射飞牛fnos版WebUI启动器<br>请在安装过程中设置 Web UI 密码。如忘记，可从"应用设置"中修改<br>如有其他问题，可前往应用"帮助"界面查看使用文档
 platform              = x86
@@ -9,7 +9,7 @@ maintainer_url        = https://www.mefrp.com/
 distributor           = sherry
 distributor_url       = https://club.fnnas.com/home.php?mod=space&uid=16443
 os_min_version        = 1.1.3104
-changelog             = 本次升级将把核心升级至 v1.5.0-fnos,请在升级后重新登录账号并启动隧道<br>【核心】<br>支持隧道删除功能
+changelog             = 支持 TLS 证书配置，证书存放于持久目录<br>【核心】<br>新增节点 TLS 证书配置能力，证书文件存放于持久目录，升级不丢失
 desktop_uidir         = ui
 desktop_applaunchname = mefrp.Application
 service_port          = 1201

@@ -12,6 +12,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PKG_DIR="${TRIM_APPDEST:-$(cd "${SCRIPT_DIR}/.." && pwd)}"
 MEFRPC_HOME="${TRIM_PKGVAR}"
 mkdir -p "${MEFRPC_HOME}" >> ${LOG_FILE} 2>&1
+mkdir -p "${TRIM_PKGVAR}/certs" >> ${LOG_FILE} 2>&1
 export HOME="${MEFRPC_HOME}"
 MEFRPC_BIN=""
 for p in "${PKG_DIR}/www/mefrpc" "${PKG_DIR}/app/www/mefrpc" "${PKG_DIR}/mefrpc" "${PKG_DIR}/target/mefrpc" "${PKG_DIR}/app/mefrpc" "${PKG_DIR}/app/bin/mefrpc" "${SCRIPT_DIR}/../mefrpc"; do
@@ -44,7 +45,7 @@ MEFRPC_RUN="\"${MEFRPC_BIN}\""
 if command -v stdbuf >/dev/null 2>&1; then
     MEFRPC_RUN="stdbuf -oL -eL ${MEFRPC_RUN}"
 fi
-CMD="cd \"${PKG_DIR}\" && exec ${MEFRPC_RUN} ${MEFRPC_ALLOW_PUBLIC_ACCESS} --webui-addr \"${MEFRPC_BIND_HOST}\" --webui-port \"${MEFRPC_WEBUI_PORT}\" --webui-pass \"${MEFRPC_WEBUI_PASS}\" ${MEFRPC_NO_UPDATE_ARG} >> \"${MEFRPC_LOG}\" 2>&1"
+CMD="cd \"${PKG_DIR}\" && exec ${MEFRPC_RUN} ${MEFRPC_ALLOW_PUBLIC_ACCESS} --webui-addr \"${MEFRPC_BIND_HOST}\" --webui-port \"${MEFRPC_WEBUI_PORT}\" --webui-pass \"${MEFRPC_WEBUI_PASS}\" ${MEFRPC_NO_UPDATE_ARG} --cert-root \"${TRIM_PKGVAR}/certs\" >> \"${MEFRPC_LOG}\" 2>&1"
 
 log_msg() {
     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> ${LOG_FILE}
