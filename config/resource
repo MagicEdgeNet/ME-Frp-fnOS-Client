@@ -1,10 +1,6 @@
 {
-                "name": "mefrp/data",
-                "permission":
-                {
-                    "rw":
-                    [
-                        "mefrp"
-                    ]
-    }
+    "api-scope":
+    [
+        "trim.file.sharedAccess"
+    ]
 }
