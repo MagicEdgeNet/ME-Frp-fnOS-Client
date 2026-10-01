@@ -1,2 +1,2 @@
 # ME-Frp-fnOS-Client
-ME frp飞牛客户端
+ME Frp飞牛专用客户端
