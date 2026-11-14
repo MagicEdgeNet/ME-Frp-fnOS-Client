@@ -1,11 +1,6 @@
 {
-    "docker-project":
-    {
-        "projects":
-        [
-            {
-                "name": "my-app",
-                "path": "docker"
-            }
-        ]
-    }
+    "api-scope":
+    [
+        "trim.file.sharedAccess"
+    ]
+}

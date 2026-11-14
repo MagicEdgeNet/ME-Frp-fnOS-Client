@@ -1,16 +1,17 @@
 appname               = mefrp
-version               = 2.7.0-arm
+version               = 2.7.1-arm
 display_name          = ME Frp 内网穿透
 desc                  = 幻缘映射飞牛fnos版WebUI启动器<br>请在安装过程中设置 Web UI 密码。如忘记，可从"应用设置"中修改<br>如有其他问题，可前往应用"帮助"界面查看使用文档
 platform              = arm
 source                = thirdparty
 maintainer            = 幻缘网络
 maintainer_url        = https://www.mefrp.com/
-distributor           = sherry
-distributor_url       = https://club.fnnas.com/home.php?mod=space&uid=16443
+distributor           = 幻缘网络
+distributor_url       = https://www.mefrp.com/
 os_min_version        = 1.2.0012
-changelog             = 本次升级将把核心升级至 v1.6.0-fnos,请在升级后重新登录账号并启动隧道<br><br>权限升级，全新体验<br>【原生权限升级】<br>新增支持 HTTPS 隧道启动功能，并接入飞牛原生权限系统，可快速完成 SSL 证书目录授权(请将系统升级至 fnOS v1.2.0401 及以上)<br>更多好用，细节优化<br>【使用细节优化】<br>支持在「隧道」界面快速完成隧道的启用和禁用功能，无需前往控制台，提高效率<br>支持按隧道筛选启动日志，赏心悦目<br>支持新手引导功能，新手使用更加方便友好
+changelog             = 1.更换应用发布者信息
 desktop_uidir         = ui
 desktop_applaunchname = mefrp.Application
 service_port          = 1201
 checkport             = true
+checksum              = b558d06ae118e136f1b29a4fb5e20f2f
