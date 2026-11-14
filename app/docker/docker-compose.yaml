@@ -1,7 +1,0 @@
-services:
-  my-app:
-    restart: always
-    container_name: mefrp
-    network_mode: host
-    command: ${start_cmd}
-    image: menetx/frpc:latest
